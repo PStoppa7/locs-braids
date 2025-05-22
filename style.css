@@ -299,6 +299,10 @@ h1, h2 {
   color: #f72585;
   margin-bottom: 0.8rem;
 }
+ .location-icon-fixed:hover {
+      background: #f72585;
+      color: #0d0d0d;
+    }
 
 .contact-cards h3 {
   color: #ff4fa0;
