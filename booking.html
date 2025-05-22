@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book your braids and locks styling appointment with Braids & Locks. Secure your slot with our easy booking form." />
+  <meta name="keywords" content="booking, braids, locks, hair salon, dreadlocks, appointments" />
+  <meta name="author" content="Braids & Locks Studio" />
+  <title>Booking - Braids & Locks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+  <div class="logo">Loc's and Braids</div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+   <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gallary.html">Gallery</a></li>
+    <li><a href="booking.html">Booking</a></li>
+    <li><a href="policy.html">Policy</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</nav>
+  </header>
+
+  <section id="booking" class="container">
+    <h2>Book Your Style</h2>
+  
+    <form id="bookingForm" action="https://formspree.io/f/mdkgvzza"
+  method="POST" class="booking-form">
+      <label for="name">Full Name</label>
+      <input type="text" name="name" id="name" required placeholder="Your full name" />
+
+      <label for="email">Email Address</label>
+      <input type="email" name="email" id="email" required placeholder="you@example.com" />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" name="phone" id="phone" placeholder="+27 123 456 7890" />
+
+      <label for="style">Style Requested</label>
+      <select name="style" id="style" required>
+        <option value="" disabled selected>Select a style</option>
+        <option value="Braids">Braids</option>
+        <option value="Locks">Locks</option>
+        <option value="Twists">Twists</option>
+        <option value="Cornrows">Cornrows</option>
+        <option value="Custom">Custom Style</option>
+      </select>
+
+      <label for="date">Preferred Date</label>
+      <input type="date" name="date" id="date" required />
+
+      <label for="message">Additional Notes</label>
+      <textarea name="message" id="message" rows="4" placeholder="Tell us more about your style or requests..."></textarea>
+
+      <button type="submit">Send Booking Request</button>
+    </form>
+
+      <div id="loader" style="display: none; text-align: center;">
+  <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="50" />
+  <p>Sending your booking request...</p>
+</div>
+<div id="thankYouMessage" style="display: none; text-align: center;">
+  <h3>Thank you for booking!</h3>
+  <p>We've received your request and will get back to you shortly.</p>
+</div>
+  </section>
+
+  <footer>
+    <p>Thank you for visiting! Follow us:</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+   <p>&copy; 2025 Loc's and Braids. All rights reserved.Created by Phenyo Dev @Webhosthub</p>
+  </footer>
+
+  <script>
+ const navLinks = document.getElementById('navLinks');
+  const hamburger = document.getElementById('hamburger');
+  function toggleMenu() {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  }
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      hamburger.classList.remove('active');
+    });
+  });
+
+  const form = document.getElementById("bookingForm");
+  const loader = document.getElementById("loader");
+  const thankYouMessage = document.getElementById("thankYouMessage");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent default form submission
+    loader.style.display = "block"; // Show loader
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      loader.style.display = "none"; // Hide loader
+      form.style.display = "none"; // Hide form
+      thankYouMessage.style.display = "block"; // Show thank you message
+      form.reset(); // ✅ Clear the form
+    }).catch(error => {
+      loader.style.display = "none";
+      alert("Oops! Something went wrong. Please try again.");
+    });
+  });
+  
+
+  </script>
+</body>
+</html>

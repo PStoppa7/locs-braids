@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Braids & Locks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+  <div class="logo">Loc's and Braids</div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gallary.html">Gallery</a></li>
+    <li><a href="booking.html">Booking</a></li>
+    <li><a href="policy.html">Policy</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</nav>
+  </header>
+
+  <section id="about" class="container">
+    <h2>About Loc's and Braids</h2>
+    <p style="color: black;">
+      At Loc's and Braids, we specialize in creating stunning hairstyles that make you feel confident, bold, and beautiful. Our expert stylists are passionate about the latest trends in braids and locks, ensuring every client leaves with a look that reflects their unique personality and style.
+    </p>
+    <p style="color: black;">
+      With years of experience, we pride ourselves on using quality products and techniques tailored to your hair's needs. Whether you're looking for protective styles or something fresh and glamorous, Braids & Locks is your go-to destination for all things hair.
+    </p>
+    <p style="color: black;">
+      Join our community of empowered individuals who love to express themselves through their hair. Book your appointment today and step out with a look that turns heads!
+    </p>
+  </section>
+
+  <footer>
+    <p>Thank you for visiting! Follow us:</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p>&copy; 2025 Loc's and Braids. All rights reserved.Created by Phenyo Dev @Webhosthub</p>
+  </footer>
+
+  <script>
+  const navLinks = document.getElementById('navLinks');
+  const hamburger = document.getElementById('hamburger');
+  function toggleMenu() {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  }
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      hamburger.classList.remove('active');
+    });
+  });
+</script>
+
+</body>
+</html>

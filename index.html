@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Braids & Locks - Premium braiding, dreadlocks, and styling services. Book your style today!" />
+  <meta name="keywords" content="braids, locks, dreadlocks, hairstyles, booking, hair salon, South Africa" />
+  <meta name="author" content="Braids & Locks Studio" />
+  <title>Home - Braids & Locks</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-x..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Smooth Scroll -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .btn {
+      display: inline-block;
+      background: #f72585;
+      color: #121212;
+      padding: 0.9rem 1.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px #f72585aa;
+    }
+
+    .btn:hover {
+      background: #ff4fa0;
+      box-shadow: 0 0 15px #ff4fa0cc;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+   <div class="logo">Loc's and Braids</div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gallary.html">Gallery</a></li>
+    <li><a href="booking.html">Booking</a></li>
+    <li><a href="policy.html">Policy</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</nav>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1 class="cursive">Welcome to Loc's and Braids</h1>
+        <p style="color: #121212;">Embrace your crown. Book your next style with confidence & attitude.</p>
+        <a href="booking.html" class="btn">Book Now</a>
+      </div>
+      <div class="hero-image">
+        <img src="frontal13.jpg" alt="Braids & Locks Style" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Thank you for visiting! Follow us:</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  <p>&copy; 2025 Loc's and Braids. All rights reserved.Created by Phenyo Dev @Webhosthub</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.querySelector('.hamburger');
+
+    function toggleMenu() {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    // Close menu when any nav link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
