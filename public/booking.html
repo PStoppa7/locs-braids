@@ -20,6 +20,11 @@
   />
 </head>
 <body>
+  <!-- Loader -->
+<div id="loader-wrapper">
+  <div id="loader"></div>
+</div>
+
   <header>
     <nav class="navbar">
      <a href="index.html" style="text-decoration: none;"><div class="logo"> Locs & Braids</div></a>
@@ -31,7 +36,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="gallary.html">Gallery</a></li>
-        <li><a href="booking.html">Booking</a></li>
+        <li><a href="booking.html" class="active">Booking</a></li>
         <li><a href="policy.html">Policy</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="about.html">About Us</a></li>
@@ -218,9 +223,7 @@
 <select id="time" name="time" required>
   <option value="" disabled selected>Select a time slot</option>
   <!-- Fill options dynamically or statically -->
-  <option value="09:00">09:00</option>
-  <option value="12:00">10:00</option>
-  <option value="16:00">11:00</option>
+  
     </select>
 
     <div id="availableSlots" class="available-slots"></div>
@@ -280,8 +283,6 @@
     hamburger.classList.toggle("open");
   }
 
-  
-
   // Show price list
   document.getElementById("showPriceBtn").addEventListener("click", (e) => {
     e.preventDefault();
@@ -298,28 +299,48 @@
     chooser.scrollIntoView({ behavior: "smooth" });
   });
 
-  // Set today as minimum date for booking date input
+  // Set today as minimum date for booking date input and handle navigation highlighting
   document.addEventListener("DOMContentLoaded", () => {
-    const today = new Date().toISOString().split("T")[0];
-    document.getElementById("date").setAttribute("min", today);
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const minDate = `${yyyy}-${mm}-${dd}`;
+    document.getElementById("date").setAttribute("min", minDate);
+
+    // Disable weekends and today in date picker
+    document.getElementById("date").addEventListener("input", function() {
+      const selected = new Date(this.value);
+      const day = selected.getDay();
+      const isToday = this.value === minDate;
+      if (day === 0 || day === 6 || isToday) {
+        alert("Bookings are only allowed for weekdays and not for today and weekends. Please select a future weekday.");
+        this.value = '';
+      }
+    });
+
+    // Add active class to current page link
+    const currentPage = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+      const linkPath = link.getAttribute('href');
+      if (linkPath === currentPage) {
+        link.classList.add('active');
+      }
+    });
   });
 
-  // Populate time dropdown dynamically based on selected date, disabling booked slots
-  document.getElementById("date").addEventListener("change", async () => {
-    const selectedDate = document.getElementById("date").value;
+  // Populate time dropdown with fixed slots
+  document.getElementById("date").addEventListener("change", () => {
     const timeSelect = document.getElementById("time");
-
-    // Clear previous options
     timeSelect.innerHTML = "";
 
-    // Fixed slots - 24-hour format value, AM/PM label for users
     const slots = [
       { value: "09:00", label: "09:00 AM" },
       { value: "12:00", label: "12:00 PM" },
       { value: "16:00", label: "04:00 PM" }
     ];
 
-    // Add default placeholder
     const placeholderOption = document.createElement("option");
     placeholderOption.value = "";
     placeholderOption.disabled = true;
@@ -327,31 +348,10 @@
     placeholderOption.textContent = "Select a time";
     timeSelect.appendChild(placeholderOption);
 
-    // Fetch booked slots for selected date from backend
-    let bookedForDate = [];
-    try {
-      const res = await fetch(`/api/booked-slots?date=${selectedDate}`);
-      if (res.ok) {
-        bookedForDate = await res.json(); // Expect an array like ["09:00", "16:00"]
-      } else {
-        console.warn("Failed to fetch booked slots");
-      }
-    } catch (err) {
-      console.error("Error fetching booked slots:", err);
-    }
-
-    // Add slots, disable if booked
     slots.forEach(slot => {
       const option = document.createElement("option");
-      option.value = slot.value;       // 24-hour format for backend
-      option.textContent = slot.label; // AM/PM label for user
-
-      // Disable option if booked for selected date
-      if (bookedForDate.includes(slot.value)) {
-        option.disabled = true;
-        option.textContent += " (Booked)";
-      }
-
+      option.value = slot.value;
+      option.textContent = slot.label;
       timeSelect.appendChild(option);
     });
   });
@@ -362,7 +362,6 @@
       const serviceCard = btn.closest(".service-card");
       const service = serviceCard.dataset.service;
 
-      // Set selected service in hidden input, show booking form, hide chooser
       document.getElementById("serviceType").value = service;
       document.getElementById("bookingForm").style.display = "block";
       document.getElementById("serviceChooser").style.display = "none";
@@ -370,102 +369,94 @@
     });
   });
 
-  // Handle booking form submission
-  // ... existing code ...
-
-// Show confirmation modal before actual submission
-document.getElementById('BookingForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  const formData = {
-    name: document.getElementById("name").value.trim(),
-    email: document.getElementById("email").value.trim(),
-    phone: document.getElementById("phone").value.trim(),
-    date: document.getElementById("date").value,
-    time: document.getElementById("time").value,
-    lashStyle: document.getElementById("lashStyle").value,
-    serviceType: document.getElementById("serviceType").value,
-    message: document.getElementById("message").value.trim()
-  };
-
-  // Basic check before showing confirmation
-  if (!formData.name || !formData.email || !formData.date || !formData.time || !formData.lashStyle || !formData.serviceType) {
-    alert("Please fill in all required fields.");
-    return;
-  }
-
-  // Fill confirmation modal
-  const details = `
-    <strong>Service Type:</strong> ${formData.serviceType}<br>
-    <strong>Lash Style:</strong> ${formData.lashStyle}<br>
-    <strong>Name:</strong> ${formData.name}<br>
-    <strong>Email:</strong> ${formData.email}<br>
-    <strong>Phone:</strong> ${formData.phone}<br>
-    <strong>Date:</strong> ${formData.date}<br>
-    <strong>Time:</strong> ${formData.time}<br>
-    <strong>Notes:</strong> ${formData.message ? formData.message : 'None'}
-  `;
-  document.getElementById('confirmationDetails').innerHTML = details;
-  document.getElementById('confirmationModal').style.display = 'flex';
-
-  // Store formData for later use
-  window._pendingBookingData = formData;
-});
-
-// Handle confirmation modal buttons
-document.getElementById('confirmBookingBtn').addEventListener('click', async function () {
-  const formData = window._pendingBookingData;
-  if (!formData) return;
-
-  try {
-    const response = await fetch('http://localhost:3000/api/book', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
-
-    const result = await response.json();
-
-    document.getElementById('confirmationModal').style.display = 'none';
-
-    if (response.ok) {
-      alert("🎉 Thank you! Your booking was successful.");
-      document.getElementById('BookingForm').reset();
-      return;
-    }
-
-    if (response.status === 409 && result.alternatives) {
-      alert(`❌ Sorry, time slot is no longer available.\nAvailable slots: ${result.alternatives.join(', ')}`);
-      return;
-    }
-
-    alert(`⚠️ Error: ${result.error || "Something went wrong."}`);
-
-  } catch (error) {
-    console.error("Booking failed:", error);
-    alert("🚫 Something went wrong. Please try again.");
-  }
-  window._pendingBookingData = null;
-});
-
-document.getElementById('cancelBookingBtn').addEventListener('click', function () {
-  document.getElementById('confirmationModal').style.display = 'none';
-  window._pendingBookingData = null;
-});
-
   
 
-const linkPath = link.getAttribute('href');
-    const currentPage = window.location.pathname.split("/").pop(); // e.g. 'about.html'
+  // Show confirmation modal before actual submission
+  document.getElementById('BookingForm').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-    if (linkPath === currentPage) {
-      link.classList.add('active');
+    const formData = {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      date: document.getElementById("date").value,
+      time: document.getElementById("time").value,
+      lashStyle: document.getElementById("lashStyle").value,
+      serviceType: document.getElementById("serviceType").value,
+      message: document.getElementById("message").value.trim()
+    };
+
+    if (!formData.name || !formData.email || !formData.date || !formData.time || !formData.lashStyle || !formData.serviceType) {
+      alert("Please fill in all required fields.");
+      return;
     }
 
-    
+    const details = `
+      <strong>Service Type:</strong> ${formData.serviceType}<br>
+      <strong>Lash Style:</strong> ${formData.lashStyle}<br>
+      <strong>Name:</strong> ${formData.name}<br>
+      <strong>Email:</strong> ${formData.email}<br>
+      <strong>Phone:</strong> ${formData.phone}<br>
+      <strong>Date:</strong> ${formData.date}<br>
+      <strong>Time:</strong> ${formData.time}<br>
+      <strong>Notes:</strong> ${formData.message ? formData.message : 'None'}
+    `;
+    document.getElementById('confirmationDetails').innerHTML = details;
+    document.getElementById('confirmationModal').style.display = 'flex';
 
+    window._pendingBookingData = formData;
+  });
+
+  // Handle confirmation modal buttons
+  document.getElementById('confirmBookingBtn').addEventListener('click', async function () {
+    const formData = window._pendingBookingData;
+    if (!formData) return;
+
+    try {
+      // Send booking to backend
+      const response = await fetch('/api/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      const result = await response.json();
+      document.getElementById('confirmationModal').style.display = 'none';
+      if (!response.ok) {
+        if (result.error) {
+          alert("🚫 " + result.error + (result.availableSlots ? `\nAvailable slots: ${result.availableSlots.join(', ')}` : ''));
+        } else {
+          alert("🚫 Something went wrong. Please try again.");
+        }
+        return;
+      }
+      alert("🎉 Thank you! Your booking was successful.");
+      document.getElementById('BookingForm').reset();
+      window._pendingBookingData = null;
+    } catch (error) {
+      console.error("Booking failed:", error);
+      alert("🚫 Something went wrong. Please try again.");
+    }
+  });
+
+  document.getElementById('cancelBookingBtn').addEventListener('click', function () {
+    document.getElementById('confirmationModal').style.display = 'none';
+    window._pendingBookingData = null;
+  });
+   const bookingForm = document.getElementById("formElement");
+  const loaderOverlay = document.getElementById("loaderOverlay");
+
+  bookingForm.addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent actual submission
+    loaderOverlay.style.display = "flex";
+
+    // Simulate processing delay (2 seconds)
+    setTimeout(() => {
+      loaderOverlay.style.display = "none";
+      alert("Thank you! Your booking request has been received.");
+      bookingForm.reset();
+    }, 2000);
+  });
 </script>
-
 
 
 
