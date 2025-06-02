@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book your lash styling appointment with Locs & Lashes. Secure your slot with our easy booking form." />
+  <meta name="keywords" content="booking, lashes, eyelash extensions, lash salon, appointments" />
+  <meta name="author" content="Locs & Lashes Studio" />
+  <title>Booking - Locs & Lashes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+     <a href="index.html" style="text-decoration: none;"><div class="logo"> Locs & Braids</div></a>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallary.html">Gallery</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="policy.html">Policy</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="booking" class="container">
+    <h2>Book Your Lash Appointment</h2>
+
+    <div id="bookingSection">
+      <!-- Booking Hours -->
+      <div class="booking-hours" id="bookingHours">
+        <h4>Booking Hours</h4>
+        <div id="hoursTable">
+          <table>
+            <tbody>
+              <tr><th>Monday</th><td id="mondayHours">09:00-18:00</td></tr>
+              <tr><th>Tuesday</th><td id="tuesdayHours">09:00-18:00</td></tr>
+              <tr><th>Wednesday</th><td id="wednesdayHours">09:00-18:00</td></tr>
+              <tr><th>Thursday</th><td id="thursdayHours">09:00-18:00</td></tr>
+              <tr><th>Friday</th><td id="fridayHours">09:00-18:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <em>Closed on weekends & public holidays</em>
+        <!-- Book Now button to show price list -->
+        <a
+          href="#priceListWrap"
+          class="btn"
+          id="showPriceBtn"
+          style="display:block; margin:2em auto 1em auto; max-width:220px; text-align:center;"
+        >
+          See Prices & Book Now
+        </a>
+      </div>
+    </div>
+
+    <!-- Price List (hidden initially) -->
+    <div class="price-list" id="priceListWrap" style="display:none;">
+      <h3
+        style="text-align:center;letter-spacing:0.2em;font-family:'Poppins',sans-serif;font-weight:300;margin-bottom:0.3em;"
+      >
+        <span
+          style="font-family:'Dancing Script',cursive;font-size:1.3em;font-weight:400;color: black;"
+          >PRICE List</span
+        >
+      </h3>
+      <div style="max-width:480px;margin:auto;">
+        <table
+          id="priceTable"
+          style="width:100%;background:#fff;border-collapse:collapse;font-family:'Poppins',sans-serif;margin-bottom:1.2em;"
+        >
+          <tr style="border-bottom:1.5px solid #bbb;">
+            <td style="padding:10px 0; font-weight:500;">HYBRIDed</td>
+            <td style="text-align:center;">
+              <!--<img src="eyelashes.png" alt="Hybrid lash icon" style="height:32px; vertical-align:middle;" />-->
+            </td>
+            <td style="text-align:right; font-weight:400;">
+              New Set: R500<br />
+              2 Weeks Refill: R350
+            </td>
+          </tr>
+          <tr style="border-bottom:1.5px solid #bbb;">
+            <td style="padding:10px 0; font-weight:500;">VOLUME</td>
+            <td style="text-align:center;">
+              <!--<img src="eyelashes.png" alt="Hybrid lash icon" style="height:32px; vertical-align:middle;" />-->
+            </td>
+            <td style="text-align:right; font-weight:400;">
+              New Set: R600<br />
+              2 Weeks Refill: R400
+            </td>
+          </tr>
+          <tr style="border-bottom:1.5px solid #bbb;">
+            <td style="padding:10px 0; font-weight:500;">MEGA VOLUME</td>
+            <td style="text-align:center;">
+              <!--<img src="eyelashes.png" alt="Hybrid lash icon" style="height:32px; vertical-align:middle;" />-->
+            </td>
+            <td style="text-align:right; font-weight:400;">
+              New Set: R650<br />
+              2 Weeks Refill: R450
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0; font-weight:500;">LASH REMOVAL</td>
+            <td></td>
+            <td style="text-align:right; font-weight:400;">
+              In house: R100<br />
+              Foreign: R150
+            </td>
+          </tr>
+        </table>
+        <div
+          style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:1em;"
+        >
+          <img
+            src="remo2.jpg"
+            alt="Lash extension result 1"
+            style="width:58px; height:58px; border-radius:50%; object-fit:cover;"
+          />
+          <img
+            src="remo3.jpg"
+            alt="Lash extension result 2"
+            style="width:58px; height:58px; border-radius:50%; object-fit:cover;"
+          />
+          <img
+            src="remo.jpg"
+            alt="Lash extension result 3"
+            style="width:58px; height:58px; border-radius:50%; object-fit:cover;"
+          />
+        </div>
+        <div
+          style="margin-top:1.3em; text-align:center; font-size:1.05em;"
+        >
+          <span style="margin-right:1em;">
+            <i class="fab fa-whatsapp"></i> +27 82 613 5941
+          </span>
+          <span>
+            <i class="fab fa-instagram"></i> @Locsandbraidsbyremo
+          </span>
+        </div>
+      </div>
+      <!-- Book Now button to show service chooser -->
+      <a
+        href="#serviceChooser"
+        class="btn"
+        id="showServiceChooserBtn"
+        style="display:block; margin:2em auto 1em auto; max-width:220px; text-align:center;"
+      >
+        Book Now
+      </a>
+    </div>
+
+    <!-- Service Choice (hidden initially) -->
+    <div id="serviceChooser" style="display:none;">
+      <h3 style="text-align:center;margin-bottom:1.5em;">Choose Your Service Type</h3>
+      <div class="service-choice" style="display:flex; justify-content:center; gap:1.5em; flex-wrap:wrap;">
+        <div class="service-card" data-service="Full Set" tabindex="0" style="border:1px solid #ccc; padding:1em; border-radius:8px; max-width:220px; cursor:pointer;">
+          <div class="service-title" style="font-weight:600; margin-bottom:0.5em;">Full Set</div>
+          <div class="service-desc" style="font-size:0.9em; margin-bottom:0.8em;">A complete application of new lash extensions on every natural lash.</div>
+          <button type="button" class="pick-btn">Choose Full Set</button>
+        </div>
+        <div class="service-card" data-service="Fills" tabindex="0" style="border:1px solid #ccc; padding:1em; border-radius:8px; max-width:220px; cursor:pointer;">
+          <div class="service-title" style="font-weight:600; margin-bottom:0.5em;">Fills</div>
+          <div class="service-desc" style="font-size:0.9em; margin-bottom:0.8em;">Maintenance to fill in new lashes after initial full set.</div>
+          <button type="button" class="pick-btn">Choose Fills</button>
+        </div>
+        <div class="service-card" data-service="Removal" tabindex="0" style="border:1px solid #ccc; padding:1em; border-radius:8px; max-width:220px; cursor:pointer;">
+          <div class="service-title" style="font-weight:600; margin-bottom:0.5em;">Removal</div>
+          <div class="service-desc" style="font-size:0.9em; margin-bottom:0.8em;">Safe removal of lash extensions.</div>
+          <button type="button" class="pick-btn">Choose Removal</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="bookingForm" style="display:none; max-width:480px; margin: 2em auto; padding:1em; border:1px solid #ccc; border-radius:8px; font-family:'Poppins',sans-serif;">
+  <h3>Book Your Appointment</h3>
+  <form id="BookingForm" class="booking-form" autocomplete="off">
+    <!-- Service Type (readonly, value set by choice above) -->
+    <label for="serviceType">Service Type</label>
+    <input type="text" name="serviceType" id="serviceType" readonly required style="background:#f6f2ed;color:#a14a3c;font-weight:600;border:none;padding:0.8em 1em;border-radius:8px;margin-bottom:1.3em;" />
+
+    <label for="lashStyle">Lash Style</label>
+    <select name="lashStyle" id="lashStyle" required>
+      <option value="" disabled selected>Select a lash style</option>
+      <option value="Hybrid">Hybrid</option>
+      <option value="Volume">Volume</option>
+      <option value="Mega Volume">Mega Volume</option>
+      <option value="Lash Removal">Lash Removal</option> 
+    </select>
+<label for="name">Full Name</label>
+<input type="text" id="name" name="name" required />
+
+<label for="email">Email</label>
+<input type="email" id="email" name="email" required />
+
+<label for="phone">Phone</label>
+<input type="tel" id="phone" name="phone" required />
+
+<label for="date">Date</label>
+<input type="date" id="date" name="date" required />
+
+<label for="time">Time</label>
+<select id="time" name="time" required>
+  <option value="" disabled selected>Select a time slot</option>
+  <!-- Fill options dynamically or statically -->
+  <option value="09:00">09:00</option>
+  <option value="12:00">10:00</option>
+  <option value="16:00">11:00</option>
+    </select>
+
+    <div id="availableSlots" class="available-slots"></div>
+
+    <label for="message">Additional Notes</label>
+    <textarea name="message" id="message" rows="4" placeholder="Tell us more about your style or requests..."></textarea>
+
+    <div class="policy-check-wrap" style="margin:1.2em 0; display: flex; align-items:center; gap:0.5em; font-size:1em; cursor:pointer;">
+      <input type="checkbox" id="policyCheck" required style="accent-color:#b85c38; margin-right:0.5em;">
+      <label for="policyCheck" style="margin:0;cursor:pointer;">
+        I have read and understand the 
+        <a href="policy.html" target="_blank" style="color:#b85c38;text-decoration:underline;">policy of Locs &amp; Lashes</a>
+      </label>
+      
+    </div>
+
+    <p><strong>Note:</strong> Each session will take up to 2 and a half hours.</p>
+
+
+    <button type="submit" class="btn" style="margin-top:1em;">Send Booking Request</button>
+  </form>
+  <div id="thankYouMessage" style="display: none; text-align: center; padding: 20px;">
+  <h2>Thank you for booking!</h2>
+  <p>We'll contact you shortly to confirm your lash appointment.</p>
+</div>
+</section>
+
+<!-- Confirmation Modal -->
+<div id="confirmationModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#fff; padding:2em; border-radius:10px; max-width:400px; margin:auto; position:relative;">
+    <h3 style="margin-top:0;">Confirm Your Booking</h3>
+    <div id="confirmationDetails" style="margin-bottom:1.5em;"></div>
+    <button id="confirmBookingBtn" class="btn" style="margin-right:1em;">Confirm</button>
+    <button id="cancelBookingBtn" class="btn" style="background:#ccc; color:#333;">Cancel</button>
+  </div>
+</div>
+
+
+
+  <footer>
+    <p>Thank you for visiting! Follow us:</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p>&copy; 2025 Locs & Braids. All rights reserved. Created by Phenyo Dev @Webhosthub</p>
+  </footer>
+
+
+  <script>
+  // Toggle hamburger menu
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    const hamburger = document.getElementById("hamburger");
+    nav.classList.toggle("active");
+    hamburger.classList.toggle("open");
+  }
+
+  
+
+  // Show price list
+  document.getElementById("showPriceBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    const priceList = document.getElementById("priceListWrap");
+    priceList.style.display = "block";
+    priceList.scrollIntoView({ behavior: "smooth" });
+  });
+
+  // Show service chooser
+  document.getElementById("showServiceChooserBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    const chooser = document.getElementById("serviceChooser");
+    chooser.style.display = "block";
+    chooser.scrollIntoView({ behavior: "smooth" });
+  });
+
+  // Set today as minimum date for booking date input
+  document.addEventListener("DOMContentLoaded", () => {
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("date").setAttribute("min", today);
+  });
+
+  // Populate time dropdown dynamically based on selected date, disabling booked slots
+  document.getElementById("date").addEventListener("change", async () => {
+    const selectedDate = document.getElementById("date").value;
+    const timeSelect = document.getElementById("time");
+
+    // Clear previous options
+    timeSelect.innerHTML = "";
+
+    // Fixed slots - 24-hour format value, AM/PM label for users
+    const slots = [
+      { value: "09:00", label: "09:00 AM" },
+      { value: "12:00", label: "12:00 PM" },
+      { value: "16:00", label: "04:00 PM" }
+    ];
+
+    // Add default placeholder
+    const placeholderOption = document.createElement("option");
+    placeholderOption.value = "";
+    placeholderOption.disabled = true;
+    placeholderOption.selected = true;
+    placeholderOption.textContent = "Select a time";
+    timeSelect.appendChild(placeholderOption);
+
+    // Fetch booked slots for selected date from backend
+    let bookedForDate = [];
+    try {
+      const res = await fetch(`/api/booked-slots?date=${selectedDate}`);
+      if (res.ok) {
+        bookedForDate = await res.json(); // Expect an array like ["09:00", "16:00"]
+      } else {
+        console.warn("Failed to fetch booked slots");
+      }
+    } catch (err) {
+      console.error("Error fetching booked slots:", err);
+    }
+
+    // Add slots, disable if booked
+    slots.forEach(slot => {
+      const option = document.createElement("option");
+      option.value = slot.value;       // 24-hour format for backend
+      option.textContent = slot.label; // AM/PM label for user
+
+      // Disable option if booked for selected date
+      if (bookedForDate.includes(slot.value)) {
+        option.disabled = true;
+        option.textContent += " (Booked)";
+      }
+
+      timeSelect.appendChild(option);
+    });
+  });
+
+  // Handle pick button clicks on service cards
+  document.querySelectorAll(".pick-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const serviceCard = btn.closest(".service-card");
+      const service = serviceCard.dataset.service;
+
+      // Set selected service in hidden input, show booking form, hide chooser
+      document.getElementById("serviceType").value = service;
+      document.getElementById("bookingForm").style.display = "block";
+      document.getElementById("serviceChooser").style.display = "none";
+      document.getElementById("bookingForm").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // Handle booking form submission
+  // ... existing code ...
+
+// Show confirmation modal before actual submission
+document.getElementById('BookingForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const formData = {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    date: document.getElementById("date").value,
+    time: document.getElementById("time").value,
+    lashStyle: document.getElementById("lashStyle").value,
+    serviceType: document.getElementById("serviceType").value,
+    message: document.getElementById("message").value.trim()
+  };
+
+  // Basic check before showing confirmation
+  if (!formData.name || !formData.email || !formData.date || !formData.time || !formData.lashStyle || !formData.serviceType) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  // Fill confirmation modal
+  const details = `
+    <strong>Service Type:</strong> ${formData.serviceType}<br>
+    <strong>Lash Style:</strong> ${formData.lashStyle}<br>
+    <strong>Name:</strong> ${formData.name}<br>
+    <strong>Email:</strong> ${formData.email}<br>
+    <strong>Phone:</strong> ${formData.phone}<br>
+    <strong>Date:</strong> ${formData.date}<br>
+    <strong>Time:</strong> ${formData.time}<br>
+    <strong>Notes:</strong> ${formData.message ? formData.message : 'None'}
+  `;
+  document.getElementById('confirmationDetails').innerHTML = details;
+  document.getElementById('confirmationModal').style.display = 'flex';
+
+  // Store formData for later use
+  window._pendingBookingData = formData;
+});
+
+// Handle confirmation modal buttons
+document.getElementById('confirmBookingBtn').addEventListener('click', async function () {
+  const formData = window._pendingBookingData;
+  if (!formData) return;
+
+  try {
+    const response = await fetch('http://localhost:3000/api/book', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+
+    document.getElementById('confirmationModal').style.display = 'none';
+
+    if (response.ok) {
+      alert("🎉 Thank you! Your booking was successful.");
+      document.getElementById('BookingForm').reset();
+      return;
+    }
+
+    if (response.status === 409 && result.alternatives) {
+      alert(`❌ Sorry, time slot is no longer available.\nAvailable slots: ${result.alternatives.join(', ')}`);
+      return;
+    }
+
+    alert(`⚠️ Error: ${result.error || "Something went wrong."}`);
+
+  } catch (error) {
+    console.error("Booking failed:", error);
+    alert("🚫 Something went wrong. Please try again.");
+  }
+  window._pendingBookingData = null;
+});
+
+document.getElementById('cancelBookingBtn').addEventListener('click', function () {
+  document.getElementById('confirmationModal').style.display = 'none';
+  window._pendingBookingData = null;
+});
+
+  
+
+const linkPath = link.getAttribute('href');
+    const currentPage = window.location.pathname.split("/").pop(); // e.g. 'about.html'
+
+    if (linkPath === currentPage) {
+      link.classList.add('active');
+    }
+
+    
+
+</script>
+
+
+
+
+  
+</body>
+</html>

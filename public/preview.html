@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Braids & Locks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f5fa;
+      margin: 0;
+      color: #222;
+    }
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem 1.5rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px #f7258533;
+    }
+    .about-flex {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .about-content {
+      flex: 2 1 300px;
+    }
+    .about-image {
+      flex: 1 1 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .about-image img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #d57fff88;
+      border: 4px solid #fafafa;
+      background: #fff;
+    }
+    h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      color: #f72585;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .about-flex { flex-direction: column; align-items: flex-start; }
+      .about-image { margin-top: 1.5rem; width: 100%; justify-content: flex-start; }
+      .about-image img { width: 220px; height: 220px;}
+    }
+  </style>
+</head>
+<body>
+  <section id="about" class="container">
+    <div class="about-flex">
+      <div class="about-content">
+        <h2>About Loc's and Braids</h2>
+        <p>
+          At Loc's & Braids, we specialize in creating stunning hairstyles that make you feel confident, bold, and beautiful. Our expert stylists are passionate about the latest trends in braids and locks, ensuring every client leaves with a look that reflects their unique personality and style.
+        </p>
+        <p>
+          With years of experience, we pride ourselves on using quality products and techniques tailored to your hair's needs. Whether you're looking for protective styles or something fresh and glamorous, Braids & Locks is your go-to destination for all things hair.
+        </p>
+        <p>
+          Join our community of empowered individuals who love to express themselves through their hair. Book your appointment today and step out with a look that turns heads!
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="remo4.jpg" alt="About Locs and Braids" />
+      </div>
+    </div>
+  </section>
+</body>
+</html>

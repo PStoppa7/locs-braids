@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Open Graph -->
+<meta property="og:title" content="Home - Braids & Locks" />
+<meta property="og:description" content="Locs & Braids- Premium braiding, dreadlocks, and styling services. Book your style today!" />
+<meta property="og:image" content="https://pstoppa7.github.io/locs-braids/remo.5.jpg" />
+<meta property="og:url" content="https://pstoppa7.github.io/locs-braids/index.html" />
+<meta property="og:type" content="website" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Home - Braids & Locks" />
+<meta name="twitter:description" content="Locs & Braids - Premium braiding, dreadlocks, and styling services. Book your style today!" />
+<meta name="twitter:image" content="https://pstoppa7.github.io/locs-braids/remo.5.jpg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Braids & Locks - Premium braiding, dreadlocks, and styling services. Book your style today!" />
+  <meta name="keywords" content="braids, locks, dreadlocks, hairstyles, booking, hair salon, South Africa" />
+  <meta name="author" content="Braids & Locks Studio" />
+  <title>Home - Locs & Braids</title>
+  <link rel="canonical" href="https://pstoppa7.github.io/locs-braids/index.html" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-x..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+ 
+  <!-- Schema.org JSON-LD for SEO -->
+ <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Locs and Braids",
+    "image": "https://pstoppa7.github.io/locs-braids/remo.5.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4002 Monica Crescent",
+      "addressLocality": "Your City",
+      "addressCountry": "South Africa"
+    },
+    "telephone": "+27-826135941",
+    "url": "https://pstoppa7.github.io/locs-braids/"
+  }
+  </script>
+
+  <!-- Smooth Scroll -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .btn {
+      display: inline-block;
+      background: #f72585;
+      color: #121212;
+      padding: 0.9rem 1.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px #f72585aa;
+    }
+
+    .btn:hover {
+      background: #ff4fa0;
+      box-shadow: 0 0 15px #ff4fa0cc;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+   <a href="index.html" style="text-decoration: none;"><div class="logo"> Locs & Braids</div></a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gallary.html">Gallery</a></li>
+    <li><a href="booking.html">Booking</a></li>
+    <li><a href="policy.html">Policy</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="about.html">About Us</a></li>
+  </ul>
+</nav>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1 class="cursive">Welcome to Loc & Braids</h1>
+        <p style="color: #121212;">Welcome to Locs&Braids! Where every blink is a beauty moment.</p>
+        <!-- Only the BOOK NOW button link changes! -->
+<a href="booking.html#bookingSection" class="btn">Book Now</a>
+      </div>
+      <div class="hero-image">
+        <img src="frontal13.jpg" alt="  beautiful braids and locks hairstyle" />
+      </div>
+    </div>
+  </section>
+ 
+
+  <!-- Footer -->
+  <footer>
+    <p>Thank you for visiting! Follow us:</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  <p>&copy; 2025 Locs&Braids. All rights reserved.Created by Phenyo Dev @Webhosthub</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script type=>
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.querySelector('.hamburger');
+
+    function toggleMenu() {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    // Close menu when any nav link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+
+           // Highlight current tab
+    const linkPath = link.getAttribute('href');
+    const currentPage = window.location.pathname.split("/").pop(); // e.g. 'about.html'
+
+    if (linkPath === currentPage) {
+      link.classList.add('active');
+    }
+      
+    });
+    
+  </script>
+</body>
+</html>

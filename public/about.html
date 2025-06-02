@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Braids & Locks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-x..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+  <a href="index.html" style="text-decoration: none;"><div class="logo"> Locs & Braids</div></a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gallary.html">Gallery</a></li>
+    <li><a href="booking.html">Booking</a></li>
+    <li><a href="policy.html">Policy</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="about.html">About Us</a></li>
+  </ul>
+</nav>
+  </header>
+
+  <section id="about" class="container">
+  <div class="about-flex">
+    <div class="about-content">
+      <h2>About Locs & Braids</h2>
+      <p style="color: e85395;" class="cursive" >
+       At Locs&Braids, we're passionate about enhancing your natural beauty with stunning, custom lashes.
+      </p>
+      <p style="color: e85395;" class="cursive">
+      Our experienced technicians use top-quality products and techniques to create unique looks that make you feel confident and beautiful.
+      </p>
+      <p style="color: e85395;" class="cursive">
+        Join our community of empowered individuals who love to express themselves through their hair. Book your appointment today and step out with a look that turns heads!
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="remo4.jpg" alt="About Locs and Braids" />
+    </div>
+  </div>
+</section>
+
+  <footer>
+    <p>Thank you for visiting! Follow us:</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p>&copy; 2025 Locs & Braids. All rights reserved.Created by Phenyo Dev @Webhosthub</p>
+  </footer>
+
+  <script>
+  const navLinks = document.getElementById('navLinks');
+  const hamburger = document.getElementById('hamburger');
+  function toggleMenu() {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  }
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      hamburger.classList.remove('active');
+    });
+
+        // Highlight current tab
+    const linkPath = link.getAttribute('href');
+    const currentPage = window.location.pathname.split("/").pop(); // e.g. 'about.html'
+
+    if (linkPath === currentPage) {
+      link.classList.add('active');
+    }
+  });
+</script>
+
+</body>
+</html>

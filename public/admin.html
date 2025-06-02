@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Bookings - Locs & Lashes</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    table { border-collapse: collapse; width: 100%; margin: 2em 0; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align:left; }
+    th { background: #eee; }
+    #loginForm { margin: 2em auto; max-width: 300px; }
+    #bookingTable { display: none; }
+    .logout-btn { background: #b85c38; color: #fff; border: none; padding: 0.6em 1.5em; border-radius: 5px; cursor:pointer; float:right;}
+  </style>
+</head>
+<body>
+  <h2>Admin - View All Bookings</h2>
+  <form id="loginForm">
+    <label for="adminPassword">Admin Password:</label><br>
+    <input type="password" id="adminPassword" required><br>
+    <button type="submit">Login</button>
+  </form>
+  <button class="logout-btn" id="logoutBtn" style="display:none;">Logout</button>
+  <div id="bookingTable">
+    <h3>All Bookings</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Lash Style</th>
+          <th>Service Type</th>
+        </tr>
+      </thead>
+      <tbody id="bookingsBody">
+      </tbody>
+    </table>
+  </div>
+  <script>
+    let adminSecret = "";
+
+    document.getElementById('loginForm').onsubmit = function(e){
+      e.preventDefault();
+      adminSecret = document.getElementById('adminPassword').value;
+      fetch('/api/admin/bookings', {
+        headers: { 'x-admin-secret': adminSecret }
+      })
+      .then(res => {
+        if(res.status === 401) throw new Error('Unauthorized');
+        return res.json();
+      })
+      .then(bookings => {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('logoutBtn').style.display = 'block';
+        const tbody = document.getElementById('bookingsBody');
+        tbody.innerHTML = '';
+        bookings.forEach(b => {
+          tbody.innerHTML += `<tr>
+            <td>${b.date}</td>
+            <td>${b.time}</td>
+            <td>${b.name}</td>
+            <td>${b.email}</td>
+            <td>${b.phone}</td>
+            <td>${b.lashStyle}</td>
+            <td>${b.serviceType}</td>
+          </tr>`;
+        });
+        document.getElementById('bookingTable').style.display = 'block';
+      })
+      .catch(err => {
+        alert('Incorrect password or not authorized.');
+      });
+    };
+
+    document.getElementById('logoutBtn').onclick = function(){
+      adminSecret = "";
+      document.getElementById('loginForm').reset();
+      document.getElementById('loginForm').style.display = 'block';
+      document.getElementById('logoutBtn').style.display = 'none';
+      document.getElementById('bookingTable').style.display = 'none';
+    };
+  </script>
+</body>
+</html>

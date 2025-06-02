@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Booking policy for Braids & Locks. Learn about deposits, cancellations, and appointment guidelines." />
+  <meta name="keywords" content="booking policy, appointments, deposits, cancellations, braids, locks" />
+  <meta name="author" content="Braids & Locks Studio" />
+  <title>Booking Policy -Locs & Braids</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-x..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <header>
+   <nav class="navbar">
+  <a href="index.html" style="text-decoration: none;"><div class="logo"> Locs & Braids</div></a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gallary.html">Gallery</a></li>
+    <li><a href="booking.html">Booking</a></li>
+    <li><a href="policy.html">Policy</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="about.html">About Us</a></li>
+  </ul>
+  </header>
+
+  <section id="policy" class="container">
+    <h2>Booking Policy</h2>
+    <ul>
+      <li>A deposit is required to secure your booking.</li>
+      <li>Please arrive on time. A 15-minute grace period is allowed.</li>
+      <li>No extra guests during appointments.</li>
+      <li>Rescheduling should be done at least 24 hours in advance.</li>
+      <li>Please notify us immediately in case of cancellations.</li>
+    </ul>
+  </section>
+  <section id="policy" class="container">
+  <h2>Appointment Policy</h2>
+  <ul>
+    <li>
+      <strong>Changes & Cancellations:</strong>
+      If any changes need to be made to your appointment, please notify us at least <strong>24 hours in advance</strong> in order to avoid forfeiting your deposit.
+    </li>
+    <li>
+      <strong>Deposit:</strong>
+      To secure your spot, a <strong>non-refundable 50% deposit</strong> will be collected at the time of booking. Once payment is received into our account, your appointment will be confirmed.
+    </li>
+  </ul>
+  <h3>Reminders</h3>
+  <ul>
+    <li>
+      Your appointment will be <strong>cancelled if you arrive 15 minutes late</strong>. Please keep in mind that the deposit is non-refundable.
+    </li>
+    <li>
+      For purposes of safety and sanitation, we cannot allow more than one guest per room.
+    </li>
+    <li>
+      Please arrive without any eye makeup and do not curl your lashes on the day of your appointment.
+    </li>
+  </ul>
+</section>
+
+  <footer>
+    <p>Thank you for visiting! Follow us:</p>
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+   <p>&copy; 2025 Locs & Braids. All rights reserved.Created by Phenyo Dev @Webhosthub</p>
+  </footer>
+
+   <script>
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.querySelector('.hamburger');
+
+    function toggleMenu() {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    // Close menu when any nav link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
