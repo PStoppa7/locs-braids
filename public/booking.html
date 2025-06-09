@@ -65,56 +65,57 @@
         <span class="time closed">Closed</span>
       </div>
     </div>
+    <button class="book-now-btn" onclick="document.getElementById('priceListWrap').style.display='block'">Book Now</button>
 
     <!-- Price List (hidden initially) -->
     <div class="price-list" id="priceListWrap" style="display:none;">
       <h3
-        style="text-align:center;letter-spacing:0.2em;font-family:'Poppins',sans-serif;font-weight:300;margin-bottom:0.3em;"
+        style="text-align:center;letter-spacing:0.2em;font-family:'Poppins',sans-serif;font-weight:300;margin-bottom:0.3em;color:black;"
       >
         <span
-          style="font-family:'Dancing Script',cursive;font-size:1.3em;font-weight:400;color: black;"
+          style="font-family:'Dancing Script',cursive;font-size:1.3em;font-weight:400;color:black;"
           >PRICE List</span
         >
       </h3>
       <div style="max-width:480px;margin:auto;">
         <table
           id="priceTable"
-          style="width:100%;background:#fff;border-collapse:collapse;font-family:'Poppins',sans-serif;margin-bottom:1.2em;"
+          style="width:100%;background:#fff;border-collapse:collapse;font-family:'Poppins',sans-serif;margin-bottom:1.2em;color:black;"
         >
           <tr style="border-bottom:1.5px solid #bbb;">
-            <td style="padding:10px 0; font-weight:500;">HYBRIDed</td>
+            <td style="padding:10px 0; font-weight:500;color:black;">HYBRIDed</td>
             <td style="text-align:center;">
               <!--<img src="eyelashes.png" alt="Hybrid lash icon" style="height:32px; vertical-align:middle;" />-->
             </td>
-            <td style="text-align:right; font-weight:400;">
+            <td style="text-align:right; font-weight:400;color:black;">
               New Set: R500<br />
               2 Weeks Refill: R350
             </td>
           </tr>
           <tr style="border-bottom:1.5px solid #bbb;">
-            <td style="padding:10px 0; font-weight:500;">VOLUME</td>
+            <td style="padding:10px 0; font-weight:500;color:black;">VOLUME</td>
             <td style="text-align:center;">
               <!--<img src="eyelashes.png" alt="Hybrid lash icon" style="height:32px; vertical-align:middle;" />-->
             </td>
-            <td style="text-align:right; font-weight:400;">
+            <td style="text-align:right; font-weight:400;color:black;">
               New Set: R600<br />
               2 Weeks Refill: R400
             </td>
           </tr>
           <tr style="border-bottom:1.5px solid #bbb;">
-            <td style="padding:10px 0; font-weight:500;">MEGA VOLUME</td>
+            <td style="padding:10px 0; font-weight:500;color:black;">MEGA VOLUME</td>
             <td style="text-align:center;">
               <!--<img src="eyelashes.png" alt="Hybrid lash icon" style="height:32px; vertical-align:middle;" />-->
             </td>
-            <td style="text-align:right; font-weight:400;">
+            <td style="text-align:right; font-weight:400;color:black;">
               New Set: R650<br />
               2 Weeks Refill: R450
             </td>
           </tr>
           <tr>
-            <td style="padding:10px 0; font-weight:500;">LASH REMOVAL</td>
+            <td style="padding:10px 0; font-weight:500;color:black;">LASH REMOVAL</td>
             <td></td>
-            <td style="text-align:right; font-weight:400;">
+            <td style="text-align:right; font-weight:400;color:black;">
               In house: R100<br />
               Foreign: R150
             </td>
@@ -156,6 +157,7 @@
         class="btn"
         id="showServiceChooserBtn"
         style="display:block; margin:2em auto 1em auto; max-width:220px; text-align:center;"
+        onclick="document.getElementById('serviceChooser').style.display='block'; document.getElementById('priceListWrap').style.display='none';"
       >
         Book Now
       </a>
@@ -164,21 +166,21 @@
     <!-- Service Choice (hidden initially) -->
     <div id="serviceChooser" style="display:none;">
       <h3 style="text-align:center;margin-bottom:1.5em;">Choose Your Service Type</h3>
-      <div class="service-choice" style="display:flex; justify-content:center; gap:1.5em; flex-wrap:wrap;">
-        <div class="service-card" data-service="Full Set" tabindex="0" style="border:1px solid #ccc; padding:1em; border-radius:8px; max-width:220px; cursor:pointer;">
-          <div class="service-title" style="font-weight:600; margin-bottom:0.5em;">Full Set</div>
-          <div class="service-desc" style="font-size:0.9em; margin-bottom:0.8em;">A complete application of new lash extensions on every natural lash.</div>
-          <button type="button" class="pick-btn">Choose Full Set</button>
+      <div class="service-choice" style="display:flex; flex-direction:column; align-items:center; gap:1.5em; max-width:400px; margin:0 auto;">
+        <div class="service-card" data-service="Full Set" tabindex="0" style="border:1px solid #ccc; padding:1.5em; border-radius:8px; width:100%; cursor:pointer;" onclick="selectService('Full Set')">
+          <div class="service-title" style="font-weight:600; margin-bottom:0.5em; font-size:1.2em;">Full Set</div>
+          <div class="service-desc" style="font-size:1em; margin-bottom:1em; color:#666;">A complete application of new lash extensions on every natural lash.</div>
+          <button type="button" class="pick-btn" onclick="selectService('Full Set')">Choose Full Set</button>
         </div>
-        <div class="service-card" data-service="Fills" tabindex="0" style="border:1px solid #ccc; padding:1em; border-radius:8px; max-width:220px; cursor:pointer;">
-          <div class="service-title" style="font-weight:600; margin-bottom:0.5em;">Fills</div>
-          <div class="service-desc" style="font-size:0.9em; margin-bottom:0.8em;">Maintenance to fill in new lashes after initial full set.</div>
-          <button type="button" class="pick-btn">Choose Fills</button>
+        <div class="service-card" data-service="Fills" tabindex="0" style="border:1px solid #ccc; padding:1.5em; border-radius:8px; width:100%; cursor:pointer;" onclick="selectService('Fills')">
+          <div class="service-title" style="font-weight:600; margin-bottom:0.5em; font-size:1.2em;">Fills</div>
+          <div class="service-desc" style="font-size:1em; margin-bottom:1em; color:#666;">Maintenance to fill in new lashes after initial full set.</div>
+          <button type="button" class="pick-btn" onclick="selectService('Fills')">Choose Fills</button>
         </div>
-        <div class="service-card" data-service="Removal" tabindex="0" style="border:1px solid #ccc; padding:1em; border-radius:8px; max-width:220px; cursor:pointer;">
-          <div class="service-title" style="font-weight:600; margin-bottom:0.5em;">Removal</div>
-          <div class="service-desc" style="font-size:0.9em; margin-bottom:0.8em;">Safe removal of lash extensions.</div>
-          <button type="button" class="pick-btn">Choose Removal</button>
+        <div class="service-card" data-service="Removal" tabindex="0" style="border:1px solid #ccc; padding:1.5em; border-radius:8px; width:100%; cursor:pointer;" onclick="selectService('Removal')">
+          <div class="service-title" style="font-weight:600; margin-bottom:0.5em; font-size:1.2em;">Removal</div>
+          <div class="service-desc" style="font-size:1em; margin-bottom:1em; color:#666;">Safe removal of lash extensions.</div>
+          <button type="button" class="pick-btn" onclick="selectService('Removal')">Choose Removal</button>
         </div>
       </div>
     </div>
@@ -447,6 +449,17 @@
       bookingForm.reset();
     }, 2000);
   });
+
+  function selectService(service) {
+    // Set the service type in the form
+    document.getElementById('serviceType').value = service;
+    
+    // Show the booking form
+    document.getElementById('bookingForm').style.display = 'block';
+    
+    // Hide the service chooser
+    document.getElementById('serviceChooser').style.display = 'none';
+  }
 </script>
 
 
