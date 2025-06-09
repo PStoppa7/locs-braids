@@ -195,6 +195,20 @@ body {
   text-overflow: ellipsis;
 }
 
+@media (max-width: 768px) {
+  .hero-text h1.hero-title {
+    font-size: 2.5em;
+    white-space: normal;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1.hero-title {
+    font-size: 2em;
+  }
+}
+
 .hero-text p {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
