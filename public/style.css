@@ -186,13 +186,17 @@ body {
 
 .hero-text h1.hero-title {
   font-family: 'Dancing Script', cursive;
-  font-size: 4.5em;
+  font-size: 3.9em;
   margin-bottom: 1rem;
   text-align: center;
   max-width: 90%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {
