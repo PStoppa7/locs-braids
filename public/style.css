@@ -167,24 +167,36 @@ body {
 .hero .container.hero-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 2rem;
   padding: 2rem 1rem;
   flex-wrap: wrap;
+  min-height: 80vh;
 }
 
 .hero-text {
   flex: 1 1 300px;
   color: #f0c0ff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero-text h1 {
-  font-size: 3.5rem;
+.hero-text h1.hero-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.9em;
   margin-bottom: 1rem;
+  text-align: center;
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .hero-text p {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   margin-bottom: 1.5rem;
   max-width: 500px;
 }
@@ -252,7 +264,7 @@ body {
 }
 
 h1, h2 {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   color: #131213;
   font-size: 3.5rem;
